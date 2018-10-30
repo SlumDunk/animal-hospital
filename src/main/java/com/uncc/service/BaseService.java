@@ -1,6 +1,6 @@
 package com.uncc.service;
 
-import com.uncc.dto.ServiceResult;
+import com.uncc.dto.ServiceResultDTO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface BaseService {
-    ServiceResult queryDataSet(String command);
+    ServiceResultDTO queryDataSet(String command);
 }

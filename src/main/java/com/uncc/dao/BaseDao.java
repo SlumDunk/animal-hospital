@@ -1,8 +1,7 @@
 package com.uncc.dao;
 
-import com.uncc.po.DaoResult;
+import com.uncc.po.DaoResultPO;
 import com.uncc.utils.DBUtil;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,11 +20,11 @@ public class BaseDao {
     @Autowired
     SqlSessionFactory sessionFactory;
 
-    public DaoResult executeQuery(String command) {
+    public DaoResultPO executeQuery(String command) {
         Connection conn = DBUtil.getConnection(sessionFactory);
         Statement statement = null;
         ResultSet rs = null;
-        DaoResult result = new DaoResult();
+        DaoResultPO result = new DaoResultPO();
         try {
             statement = conn.createStatement();
             rs = statement.executeQuery(command);

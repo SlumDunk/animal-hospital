@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseResult {
+public class ResponseResultVO {
     private String code;
     private String msg;
     private Object data;

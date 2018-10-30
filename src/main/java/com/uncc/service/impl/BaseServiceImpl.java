@@ -1,13 +1,12 @@
 package com.uncc.service.impl;
 
 import com.uncc.dao.BaseDao;
-import com.uncc.dto.ServiceResult;
-import com.uncc.po.DaoResult;
+import com.uncc.dto.ServiceResultDTO;
+import com.uncc.po.DaoResultPO;
 import com.uncc.service.BaseService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @Author: zerongliu
@@ -20,9 +19,9 @@ public class BaseServiceImpl implements BaseService {
     BaseDao baseDao;
 
     @Override
-    public ServiceResult queryDataSet(String command) {
-        ServiceResult serviceResult = new ServiceResult();
-        DaoResult daoResult = baseDao.executeQuery(command);
+    public ServiceResultDTO queryDataSet(String command) {
+        ServiceResultDTO serviceResult = new ServiceResultDTO();
+        DaoResultPO daoResult = baseDao.executeQuery(command);
         BeanUtils.copyProperties(daoResult, serviceResult);
         return serviceResult;
     }

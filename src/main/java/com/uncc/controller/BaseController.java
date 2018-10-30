@@ -1,14 +1,12 @@
 package com.uncc.controller;
 
-import com.uncc.dto.ServiceResult;
+import com.uncc.dto.ServiceResultDTO;
 import com.uncc.service.BaseService;
 import com.uncc.vo.QueryVO;
-import com.uncc.vo.ResponseResult;
+import com.uncc.vo.ResponseResultVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.xml.ws.Service;
 
 /**
  * @Author: zerongliu
@@ -24,9 +22,9 @@ public class BaseController {
 
     @ResponseBody
     @RequestMapping(value = "query", method = RequestMethod.POST)
-    public ResponseResult executeSqlCommand(@RequestBody QueryVO queryVO) {
-        ResponseResult result = new ResponseResult();
-        ServiceResult serviceResult = new ServiceResult();
+    public ResponseResultVO executeSqlCommand(@RequestBody QueryVO queryVO) {
+        ResponseResultVO result = new ResponseResultVO();
+        ServiceResultDTO serviceResult = new ServiceResultDTO();
         if (StringUtils.isNotBlank(queryVO.getCommand())) {
             serviceResult = baseService.queryDataSet(queryVO.getCommand());
         }

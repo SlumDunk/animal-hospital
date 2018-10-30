@@ -16,7 +16,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ServiceResult {
+public class ServiceResultDTO {
     /**
      * headers of columns
      */
